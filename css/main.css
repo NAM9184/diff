@@ -1,0 +1,562 @@
+@import url(../css/setting.css);
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+@font-face {
+  font-family: "S-CoreDream-9Black";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  color: #d8ccbc;
+  background: linear-gradient(0deg, rgb(128, 128, 128) 0%, rgb(0, 0, 0) 100%);
+  position: relative;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  transition: all 1.5s ease-in-out;
+}
+
+body::before {
+  content: "";
+  display: block;
+  background-image: url(../img/pattern-noise.webp);
+  opacity: 0.5;
+  background-repeat: repeat;
+  background-size: 257px auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 99999998;
+}
+
+.intro {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: #141414;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.intro .draw {
+  stroke: black;
+  stroke-width: 2px;
+  -webkit-animation: draw 5s linear;
+          animation: draw 5s linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  margin: 200px 0 0 200px;
+  opacity: 1;
+  fill: transparent;
+}
+.intro.remove {
+  opacity: 0;
+  transition: 5s all ease-in-out;
+  z-index: -1;
+}
+@-webkit-keyframes draw {
+  0% {
+    stroke-dasharray: 0 100%;
+  }
+  100% {
+    stroke-dasharray: 100% 0%;
+  }
+}
+@keyframes draw {
+  0% {
+    stroke-dasharray: 0 100%;
+  }
+  100% {
+    stroke-dasharray: 100% 0%;
+    fill: #d8ccbc;
+    opacity: 0;
+  }
+}
+
+header {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Noto Sans KR", sans-serif;
+  z-index: 999;
+}
+header .menu {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 99999;
+}
+header .menu .btn_menu {
+  width: 50px;
+  height: 10px;
+  background: #fff;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+header .menu .btn_menu::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  top: 0;
+  width: 50px;
+  height: 10px;
+  background: #ccc;
+  transition: 0.5s ease-in-out;
+}
+header .menu .btn_menu.active {
+  transform: rotate(45deg);
+  transition: 0.5s ease-in-out;
+}
+header .menu .btn_menu.active::before {
+  transform: rotate(-90deg);
+  transition: 0.5s ease-in-out;
+}
+header .logo {
+  width: 100px;
+}
+
+h2 {
+  font-size: 52px;
+  font-family: "S-CoreDream-9Black";
+}
+
+h3 {
+  font-size: 32px;
+}
+
+section.opacity {
+  margin: 200px 0 0;
+  opacity: 0.5;
+  transition: all 0.5s linear;
+}
+section.opacity.is-animated {
+  opacity: 1;
+  transition: all 0.5s linear;
+}
+
+.inner {
+  width: 80%;
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.detail {
+  font-size: 22px;
+}
+.detail a {
+  position: relative;
+}
+.detail svg {
+  position: absolute;
+  left: -30px;
+  top: -15px;
+  opacity: 0;
+}
+.detail:hover svg {
+  stroke: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.2s linear;
+}
+
+.desc {
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+#banner {
+  position: relative;
+  height: 100vh;
+}
+#banner .inner {
+  height: 70%;
+  padding: 250px 0 0 0;
+}
+#banner .textgroup {
+  width: 30%;
+  height: 100%;
+  z-index: 1;
+}
+#banner .textgroup h2 {
+  font-size: 160px;
+  margin-left: -15px;
+}
+#banner .textgroup .desc {
+  margin-top: 200px;
+}
+#banner .imgback {
+  position: relative;
+  width: 35%;
+  border-radius: 50% 50% 0 0;
+  background-image: url(../img/hodiffpng.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#banner .imgback .path1 {
+  position: absolute;
+  z-index: 3;
+  mix-blend-mode: soft-light;
+  height: 120%;
+}
+#banner .imgback .path1 path {
+  stroke-opacity: 0.1;
+}
+#banner .back {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-size: 26vh;
+  color: transparent;
+  width: 100%;
+  -webkit-text-stroke: 0.8px rgba(255, 255, 255, 0.6);
+  z-index: -1;
+}
+#banner .detail {
+  width: 30%;
+  text-align: center;
+  align-self: flex-end;
+}
+
+#notice {
+  width: 100%;
+  font-size: 62px;
+  text-align: center;
+  background: #fff;
+  padding: 0;
+  transform: rotate(5deg) skew(5deg);
+  margin: 0 0 200px 0;
+}
+
+#section1 {
+  width: 100%;
+}
+#section1 .inner {
+  justify-content: flex-start;
+  position: relative;
+}
+#section1 .flex {
+  justify-content: flex-start;
+}
+
+.left {
+  display: flex;
+  -webkit-animation: fadeIn 0.8s 0.4s ease forwards;
+          animation: fadeIn 0.8s 0.4s ease forwards;
+  opacity: 0;
+  width: 50%;
+}
+.left .back {
+  box-shadow: 0 10px 100px rgb(0, 0, 0);
+}
+.left .decoration {
+  position: relative;
+  width: 10%;
+  height: 100%;
+}
+.left .decoration::before {
+  content: "";
+  position: absolute;
+  left: 20%;
+  bottom: 0;
+  width: 5px;
+  height: 100%;
+  background: #ccc;
+  z-index: -1;
+}
+.left .decoration span {
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
+  text-orientation: upright;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 24px;
+  background: #111;
+  padding: 10px 0;
+}
+
+.right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-animation: fadeIn 0.6s 0.8s ease forwards;
+          animation: fadeIn 0.6s 0.8s ease forwards;
+  opacity: 0;
+  width: 60%;
+}
+.right .detail {
+  height: 150px;
+}
+.right .hover_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 200px;
+  opacity: 1;
+  transform: translate(0, 300px);
+  transition: 0.2s ease-out;
+}
+.right .hover_box .hover_img {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 100%;
+  will-change: transform;
+  transform: scale(0.8, 0.8);
+  transition: 1.5s transform;
+}
+.right .hover_box .first {
+  background-image: url(../brand/deus.png);
+}
+.right .hover_box .second {
+  background-image: url(../brand/stussy.png);
+}
+.right .hover_box .third {
+  background-image: url(../brand/kith.png);
+}
+
+.desc {
+  -webkit-animation: fadeIn 0.8s 0.4s ease forwards;
+          animation: fadeIn 0.8s 0.4s ease forwards;
+  opacity: 0;
+  width: 70%;
+}
+
+.button_box {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.button_box button {
+  outline: none;
+  background: transparent;
+  width: 100px;
+  height: 50px;
+  border-color: #d8ccbc;
+  margin-right: 10px;
+}
+.button_box button span {
+  color: #d8ccbc;
+}
+.button_box button:hover {
+  border-color: #fff;
+  transition: border-color 0.2s linear;
+}
+
+.slider_item {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+}
+.slider_item.active {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    filter: grayscale(100%);
+  }
+  100% {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    filter: grayscale(100%);
+  }
+  100% {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+}
+
+#section2 .typograph h2 {
+  font-size: 10vh;
+  margin-top: -50px;
+}
+#section2 .typograph .first {
+  text-align: left;
+}
+#section2 .typograph .second {
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1px #d8ccbc;
+}
+#section2 .typograph .third {
+  text-align: right;
+}
+#section2 .typograph .detail {
+  margin: auto;
+  margin-top: 100px;
+}
+
+#section3 .magazine {
+  display: flex;
+  padding: 100px 0;
+  justify-content: space-between;
+}
+#section3 .imgbox img {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease-in-out;
+}
+#section3 .imgbox img:hover {
+  filter: gray-scale(0);
+  transition: filter 1.5s ease-in-out;
+}
+#section3 .magazine1 {
+  align-items: flex-start;
+}
+#section3 .magazine1 h2 {
+  font-size: 80px;
+  margin-top: -24px;
+}
+#section3 .magazine1 .imgbox {
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+}
+#section3 .magazine2 {
+  align-items: center;
+}
+#section3 .magazine2 .textback {
+  align-self: center;
+  width: 300px;
+  height: 300px;
+  font-size: 26vh;
+  color: transparent;
+  -webkit-text-stroke: 0.5px #d8ccbc;
+  opacity: 0.1;
+  z-index: -1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#section3 .magazine2 .imgbox {
+  width: 300px;
+  height: 500px;
+}
+#section3 .magazine3 .imgbox {
+  width: 500px;
+  height: 250px;
+  background: #ccc;
+}
+#section3 .magazine3 .soon {
+  align-self: flex-end;
+  font-size: 80px;
+}
+
+#section4 {
+  margin-bottom: 200px;
+}
+#section4 .inner h2 {
+  position: relative;
+  font-size: 120px;
+  margin-bottom: -50px;
+  z-index: 3;
+}
+#section4 .inner .instagram_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#section4 .inner .instagram_box > div {
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+#section4 .inner .box1 {
+  width: 400px;
+  margin-right: -20px;
+  z-index: 1;
+  align-self: center;
+}
+#section4 .inner .box2 {
+  width: 600px;
+  height: 600px;
+}
+#section4 .inner .box3 {
+  width: 400px;
+  height: 400px;
+  align-self: center;
+  margin-left: -20px;
+  z-index: -1;
+}
+#section4 .inner .box4 {
+  width: 400px;
+  height: 400px;
+  margin-top: -20px;
+}
+
+.side {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background: linear-gradient(0deg, rgb(128, 128, 128) 0%, rgb(0, 0, 0) 100%);
+  visibility: none;
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+}
+.side ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.side ul li {
+  font-size: 80px;
+}
+.side ul li a {
+  color: transparent;
+  -webkit-text-stroke: 0.5px #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.side.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 3;
+}
+.side.active a {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.side.active a:hover {
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}/*# sourceMappingURL=main.css.map */

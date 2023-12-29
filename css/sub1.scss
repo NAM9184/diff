@@ -1,0 +1,20 @@
+.flex{display: flex; gap: 10px;}    
+header{background: #141414; padding: 10px; display: flex; justify-content: space-between; z-index: 999;
+    .logo{width: 100px;}
+}
+
+#notice{width: 100%; font-size: 62px; text-align: center; background: #fff; padding: 0;}
+.menu{transition: all 0.5s ease;
+    &.sticky{position: fixed; top: 0; z-index: 999; background: #141414; width: 100%; transition: all 0.5s ease;}
+    .menu_list{margin-left: 100px; gap: 30px; font-size: 60px; color: transparent; -webkit-text-stroke: 1px #d8ccbc;}
+    .on{color: #d8ccbc;}
+}
+.layout_container{padding: 50px 0;
+    h2{font-size: 52px; font-weight: bold;}
+    h3{font-size: 32px;} opacity: 0;}
+.layout_container.on{z-index: 1; opacity: 1; transition: all 1s ease-in-out;}
+@media only screen and (min-width: 64.01em){
+    .layout_products{align-self: start; display: grid; grid-column-gap: 1.5rem; grid-row-gap: 1.5rem; grid-auto-rows: 1fr;grid-template-columns: repeat(6,minmax(0,1fr)); padding: 0 0.75rem;}
+}
+.layout_product{width: 100%; grid-column-end: span 2;}
+.view{width: 100px; height: 100px; border: 1px solid #d8ccbc; border-radius: 50%; text-align: center; line-height: 100px; margin: auto;}
